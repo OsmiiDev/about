@@ -165,7 +165,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
 
   return (
     <>
-      <MantineHeader className='fixed left-0 top-0 z-50 box-border flex h-12 w-screen items-center justify-between border-none bg-transparent sm:h-20' height={72}>
+      <MantineHeader className='fixed left-0 top-0 z-50 mt-2 box-border flex h-12 w-screen items-center justify-between border-none bg-transparent sm:h-20 md:mt-0' height={72}>
         <div className='ml-2 flex items-center sm:ml-4'>
           <Link aria-label='Go to homepage' className='float-left ml-2 flex items-center sm:ml-4' href='/'>
             <div className='float-left mr-2 rounded-md bg-accent-secondary'>
@@ -244,21 +244,21 @@ export const Header: React.FC<object> = (): JSX.Element => {
 
             <Menu.Dropdown className='p-2'>
               <Menu.Item
-                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-accent-primary-hover hover:text-accent-secondary-hover'
+                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
                 icon={<HiRectangleGroup />}
               >
                 <Link href='/projects'>Projects</Link>
               </Menu.Item>
 
               <Menu.Item
-                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-accent-primary-hover hover:text-accent-secondary-hover'
+                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
                 icon={<HiWrenchScrewdriver />}
               >
                 <Link href='/skills'>Skills</Link>
               </Menu.Item>
 
               <Menu.Item
-                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-accent-primary-hover hover:text-accent-secondary-hover'
+                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
                 icon={<HiPaperAirplane />}
               >
                 <Link href='/contact'>Contact</Link>
@@ -266,8 +266,8 @@ export const Header: React.FC<object> = (): JSX.Element => {
             </Menu.Dropdown>
           </Menu>
         </div>
-        <div className='mr-2 flex items-center sm:mr-4'>
-          <SiGithub className='hidden xs:inline-block' size={22}></SiGithub>
+        <div className='flex items-center'>
+          <SiGithub className='hidden text-invert-secondary xs:inline-block' size={22}></SiGithub>
           <div className='mx-3 hidden h-3 w-0 border-x border-primary xs:inline-block'></div>
           <Button
             unstyled

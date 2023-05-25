@@ -58,10 +58,10 @@
   /* #18181b */ --background-secondary: 24, 24, 27;
   /* #202023 */ --background-secondary-hover: 32, 32, 35;
   /* #27272a */ --background-tertiary: 39, 39, 42;
-  /* #38bdf8 */ --background-accent-primary: 56, 189, 248;
-  /* #84d9ff */ --background-accent-primary-hover: 132, 217, 255;
-  /* #7279f4 */ --background-accent-secondary: 114, 121, 244;
-  /* #818cf8 */ --background-accent-secondary-hover: 129, 140, 248;
+  /* #4f46e5 */ --background-accent-primary: 79, 70, 229;
+  /* #5f52f2 */ --background-accent-primary-hover: 95, 82, 242;
+  /* #304f9f */ --background-accent-secondary: 48, 79, 159;
+  /* #3e58a8 */ --background-accent-secondary-hover: 62, 88, 168;
 
   /* #18181b */ --border-primary: 24, 24, 27;
   /* #232326 */ --border-secondary: 35, 35, 38;
@@ -71,10 +71,10 @@
   /* #92929d */ --text-secondary: 146, 146, 157;
   /* #72727d */ --text-tertiary: 114, 114, 125;
   /* #a1a1aa */ --text-tertiary-hover: 161, 161, 170;
-  /* #3b82f6 */ --text-accent-primary: 59, 130, 246;
-  /* #4d9afa */ --text-accent-primary-hover: 77, 154, 250;
-  /* #a78bfa */ --text-accent-secondary: 167, 139, 250;
-  /* #b598fc */ --text-accent-secondary-hover: 181, 152, 252;
+  /* #6366f1 */ --text-accent-primary: 99, 102, 241;
+  /* #7c7ff2 */ --text-accent-primary-hover: 124, 127, 242;
+  /* #3b82f6 */ --text-accent-secondary: 59, 130, 246;
+  /* #4d9afa */ --text-accent-secondary-hover: 77, 154, 250;
   /* #000000 */ --text-invert-primary: 0, 0, 0;
   /* #ffffff */ --text-invert-secondary: 255, 255, 255;
 }

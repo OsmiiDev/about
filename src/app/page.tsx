@@ -70,10 +70,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='relative mx-4 mt-8 box-border flex justify-between p-0 sm:mx-8 sm:mt-12 md:mt-20 lg:w-240 xl:w-330'>
+        <div className='relative mx-4 mt-8 box-border flex justify-between p-0 px-1 sm:mx-8 sm:mt-12 md:mt-20 lg:w-240 xl:w-330'>
           <div className={`${styles.slideFromLeft} md:ml-8 lg:mr-12 lg:mt-16`}>
             {/* eslint-disable-next-line tailwindcss/no-contradicting-classname */}
-            <Title className='mt-10 font-jakarta text-[1.9rem] font-bold tracking-normal text-primary antialiased sm:text-[3rem] md:text-[4rem] xl:text-[4.5rem]'>
+            <Title className='mt-10 font-jakarta text-[1.9rem] font-medium tracking-normal text-primary antialiased sm:text-[3rem] md:text-[4rem] xl:text-[4.5rem]'>
               <span>Hey &#128075;. I&#39;m </span>
               <span className={`${styles.name}`}>Osmii</span>
               <span>,</span>
@@ -86,17 +86,17 @@ export default function Home() {
               <span className={`${styles.bolded}`}> cybersecurity</span>.
             </Text>
 
-            <div className='mt-5 flex flex-row items-center md:mt-[3.25rem]'>
+            <div className='mt-8 flex flex-row items-center md:mt-[3.25rem]'>
               {/* eslint-disable-next-line max-len */}
-              <button className='flex h-12 translate-y-0 items-center rounded-xl bg-accent-secondary px-4 transition-all hover:bg-accent-secondary-hover active:translate-y-px md:h-[3.25rem] md:px-5'>
+              <button className='mr-2 flex h-11 translate-y-0 items-center rounded-xl bg-accent-secondary px-3 transition-all hover:bg-accent-secondary-hover active:translate-y-px md:h-[3.25rem] md:px-5'>
                 <div className='mb-1 ml-1'>
                   <HiOutlinePaperAirplane className='-rotate-45 items-center text-[16px] text-invert-secondary md:text-lg' />
                 </div>
                 <Text className='m-1 ml-1.5 font-jakarta text-sm font-medium tracking-wide text-invert-secondary md:text-[16px]'> Get in Touch </Text>
               </button>
 
-              <button className='flex items-center p-2 py-[0.875rem] font-jakarta text-[16px] font-bold text-primary opacity-70 transition-opacity hover:opacity-100 md:ml-6 md:p-0'>
-                <HiDocumentText className='mr-0.5 text-xl md:mr-1.5 md:text-xl' /> RESUME
+              <button className='flex items-center p-2 py-[0.875rem] font-jakarta text-[14px] font-semibold text-primary opacity-70 transition-opacity hover:opacity-100 md:ml-6 md:p-0 md:text-[16px] md:font-bold'>
+                <HiDocumentText className='mr-0.5 text-lg md:mr-1.5 md:text-xl' /> RESUME
               </button>
             </div>
 
