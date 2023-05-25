@@ -1,0 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+/*
+ * Elements:
+ * Base - Backgrounds
+ * Overlay
+ *
+ * Main Colors:
+ * Primary, Secondary, Tertiary, Accent Primary, Accent Secondary, Invert Primary, Invert Secondary
+ *
+ * Other Colors:
+ * Success, Warning, Error, Info, Disabled, Text Primary, Text Secondary, Text Tertiary, Text Accent Primary, Text Accent Secondary, Text Invert Primary, Text Invert Secondary
+*/
+:root[data-theme="light"] {
+  /* #fafafa */ --background-primary: 250, 250, 250;
+  /* #f5f5f5 */ --background-primary-hover: 245, 245, 245;
+  /* #f4f4f5 */ --background-secondary: 244, 244, 245;
+  /* #ebecf0 */ --background-secondary-hover: 235, 236, 240;
+  /* #e4e4e7 */ --background-tertiary: 228, 228, 231;
+  /* #38bdf8 */ --background-accent-primary: 56, 189, 248;
+  /* #84d9ff */ --background-accent-primary-hover: 132, 217, 255;
+  /* #7279f4 */ --background-accent-secondary: 114, 121, 244;
+  /* #818cf8 */ --background-accent-secondary-hover: 129, 140, 248;
+
+  /* #dadde1 */ --border-primary: 218, 221, 225;
+  /* #c4c4c7 */ --border-secondary: 196, 196, 199;
+  /* #a1a1aa */ --border-tertiary: 161, 161, 170;
+
+  /* #3f3f46 */ --text-primary: 63, 63, 70;
+  /* #71717a */ --text-secondary: 113, 113, 122;
+  /* #a1a1aa */ --text-tertiary: 161, 161, 170;
+  /* #818188 */ --text-tertiary-hover: 129, 129, 136;
+  /* #3b82f6 */ --text-accent-primary: 59, 130, 246;
+  /* #4d9afa */ --text-accent-primary-hover: 77, 154, 250;
+  /* #a78bfa */ --text-accent-secondary: 167, 139, 250;
+  /* #b598fc */ --text-accent-secondary-hover: 181, 152, 252;
+  /* #000000 */ --text-invert-primary: 0, 0, 0;
+  /* #ffffff */ --text-invert-secondary: 255, 255, 255;
+}
+:root[data-theme="dark"] {
+  /* #09090b */ --background-primary: 9, 9, 11;
+  /* #101013 */ --background-primary-hover: 16, 16, 19;
+  /* #18181b */ --background-secondary: 24, 24, 27;
+  /* #202023 */ --background-secondary-hover: 32, 32, 35;
+  /* #27272a */ --background-tertiary: 39, 39, 42;
+  /* #38bdf8 */ --background-accent-primary: 56, 189, 248;
+  /* #84d9ff */ --background-accent-primary-hover: 132, 217, 255;
+  /* #7279f4 */ --background-accent-secondary: 114, 121, 244;
+  /* #818cf8 */ --background-accent-secondary-hover: 129, 140, 248;
+
+  /* #1a1a1c */ --border-primary: 26, 26, 28;
+  /* #232326 */ --border-secondary: 35, 35, 38;
+  /* #303033 */ --border-tertiary: 48, 48, 51;
+
+  /* #e5e5e5 */ --text-primary: 229, 229, 229;
+  /* #92929d */ --text-secondary: 146, 146, 157;
+  /* #72727d */ --text-tertiary: 114, 114, 125;
+  /* #a1a1aa */ --text-tertiary-hover: 161, 161, 170;
+  /* #3b82f6 */ --text-accent-primary: 59, 130, 246;
+  /* #4d9afa */ --text-accent-primary-hover: 77, 154, 250;
+  /* #a78bfa */ --text-accent-secondary: 167, 139, 250;
+  /* #b598fc */ --text-accent-secondary-hover: 181, 152, 252;
+  /* #000000 */ --text-invert-primary: 0, 0, 0;
+  /* #ffffff */ --text-invert-secondary: 255, 255, 255;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: rgb(var(--background-primary));
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+

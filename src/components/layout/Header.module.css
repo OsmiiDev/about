@@ -1,0 +1,16 @@
+.header::-webkit-scrollbar {
+    width: 6px;
+}
+
+.header::-webkit-scrollbar-thumb {
+    position: absolute;
+
+    background: var(--background-secondary);
+    margin-right: 1px;
+    border-radius: 2px;
+    border-right: 2px solid var(--background-primary);
+}
+
+.header::-webkit-scrollbar-track-piece {
+    margin-right: 1px;
+}

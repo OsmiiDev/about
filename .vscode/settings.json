@@ -1,0 +1,49 @@
+{
+    "background.enabled": false,
+    "background.useDefault": false,
+    "background.useFront": false,
+    "catppuccin.accentColor": "sapphire",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.inlineSuggest.enabled": true,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "editor.tabSize": 2,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    ],
+    "eslint.format.enable": true,
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.validate": true,
+    "todohighlight.keywords": [
+        {
+            "backgroundColor": "transparent",
+            "color": "#4488ff",
+            "fontWeight": "bold",
+            "text": "@TODO"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ffcc44",
+            "fontWeight": "bold",
+            "text": "@IMPORTANT"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ff4488",
+            "fontWeight": "bold",
+            "text": "@ISSUE"
+        }
+    ],
+    "typescript.tsdk": "node_modules\\.pnpm\\typescript@5.0.2\\node_modules\\typescript\\lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}
