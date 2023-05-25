@@ -230,12 +230,8 @@ export const Header: React.FC<object> = (): JSX.Element => {
             }}
           >
             <Menu.Target>
-              <Button
-                // eslint-disable-next-line max-len
-                className='float-left ml-4 block h-8 rounded-full bg-[rgba(var(--background-accent-secondary),0.6)] p-1 px-3 font-sans text-xs font-semibold text-primary transition-colors hover:bg-[rgba(var(--background-accent-secondary),0.7)] md:hidden md:h-10 md:px-4'
-              >
+              <Button className='float-left ml-4 block h-8 rounded-full bg-[rgba(var(--background-accent-secondary),0.6)] p-1 px-3 font-sans text-xs font-semibold text-primary transition-colors hover:bg-[rgba(var(--background-accent-secondary),0.7)] md:hidden md:h-10 md:px-4'>
                 <span className='text-xs text-invert-secondary md:text-[16px]'>More</span>
-                {/* eslint-disable-next-line max-len */}
                 <svg className='ml-2 h-3 w-3 rotate-90 text-invert-secondary' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
                   <path d='M14.5 7.40192C16.5 8.55662 16.5 11.4434 14.5 12.5981L8.5 16.0622C6.5 17.2169 4 15.7735 4 13.4641L4 6.5359C4 4.2265 6.5 2.78312 8.5 3.93782L14.5 7.40192Z'></path>
                 </svg>
@@ -280,16 +276,13 @@ export const Header: React.FC<object> = (): JSX.Element => {
             <div className='flex items-center'>
               <HiCommandLine className='inline-block items-center text-sm' />
               <span className='ml-2 hidden text-sm font-medium lg:inline-block'>Command Palette</span>
-              {/* eslint-disable-next-line max-len */}
               <span className='pointer-events-none ml-3 hidden rounded-sm border border-b-[2px] border-primary bg-primary p-1 py-[4px] font-mono text-3xs text-primary lg:inline-block'>CTRL</span>
               <span className='ml-1 hidden pb-1 text-3xs lg:inline-block'>+</span>
-              {/* eslint-disable-next-line max-len */}
               <span className='pointer-events-none ml-1 hidden rounded-sm border border-b-[2px] border-primary bg-primary p-1 py-[4px] font-mono text-3xs text-primary lg:inline-block'>P</span>
             </div>
           </Button>
         </div>
       </MantineHeader>
-
       <Modal
         centered
         styles={{
@@ -329,7 +322,6 @@ export const Header: React.FC<object> = (): JSX.Element => {
             setQuery(event.target.value.toLowerCase());
           }}
         />
-
         <div className={`${styles.header} max-h-[500px] overflow-auto`}>
           {commands.map((command) =>
             query.split(' ').every((value) => command.tag.includes(value)) ? (

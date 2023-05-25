@@ -18,7 +18,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint/eslint-plugin', 'prettier'],
   rules: {
-    '@typescript-eslint/indent': [2, 2],
     '@typescript-eslint/no-non-null-assertion': [0],
     '@typescript-eslint/no-unused-vars': [
       2,
@@ -28,7 +27,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/triple-slash-reference': [0],
-    'indent': [0],
     'jsx-quotes': [2, 'prefer-single'],
     'linebreak-style': [2, 'unix'],
     'max-len': [2, 300],
@@ -48,6 +46,7 @@ module.exports = {
       },
     ],
     'object-property-newline': [2, { allowAllPropertiesOnSameLine: false }],
+    'prettier/prettier': [1],
     'react/jsx-equals-spacing': [2, 'never'],
     'react/jsx-max-props-per-line': [
       2,
