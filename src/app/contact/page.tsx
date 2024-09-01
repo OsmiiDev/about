@@ -1,7 +1,7 @@
 'use client';
 
 import { HiDocumentText, HiDownload, HiOutlineInformationCircle } from 'react-icons/hi';
-import { Popover, Tooltip } from '@mantine/core';
+import { Popover } from '@mantine/core';
 import { SiDiscord, SiSignal, SiX } from 'react-icons/si';
 
 import { TbMail, TbQuestionMark } from 'react-icons/tb';
