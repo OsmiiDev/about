@@ -33,7 +33,10 @@ const commands: Command[] = [
   {
     click: () => {
       const root = document.querySelector(':root');
-      root?.setAttribute('data-theme', root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      root?.setAttribute(
+        'data-theme',
+        root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+      );
       localStorage.setItem('theme', root?.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
       return;
@@ -42,9 +45,13 @@ const commands: Command[] = [
     name: 'Toggle Dark Mode',
     right: (
       <>
-        <span className='pointer-events-none right-0 ml-1 inline-block rounded-sm border border-b-[2px] border-primary bg-primary p-1 py-[4px] font-mono text-3xs text-primary'>CTRL</span>
+        <span className='border-b-px pointer-events-none right-0 ml-1 inline-block rounded-sm border border-primary bg-primary p-1 py-[4px] font-geist text-3xs font-medium text-primary'>
+          CTRL
+        </span>
         <span className='ml-1 inline-block text-xs text-primary'>+</span>
-        <span className='pointer-events-none right-0 ml-1 inline-block rounded-sm border border-b-[2px] border-primary bg-primary p-1 py-[4px] font-mono text-3xs text-primary'>D</span>
+        <span className='border-b-px pointer-events-none right-0 ml-1 inline-block rounded-sm border border-primary bg-primary p-1 py-[4px] font-geist text-3xs font-medium text-primary'>
+          D
+        </span>
       </>
     ),
     tag: 'toggle dark mode',
@@ -154,8 +161,14 @@ export const Header: React.FC<object> = (): JSX.Element => {
         event.preventDefault();
 
         const root = document.querySelector(':root');
-        root?.setAttribute('data-theme', root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-        localStorage.setItem('theme', root?.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+        root?.setAttribute(
+          'data-theme',
+          root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+        );
+        localStorage.setItem(
+          'theme',
+          root?.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+        );
       }
     });
   });
@@ -165,50 +178,55 @@ export const Header: React.FC<object> = (): JSX.Element => {
 
   return (
     <>
-      <MantineHeader className='fixed left-0 top-0 z-50 mt-2 box-border flex h-12 w-screen items-center justify-between border-none bg-transparent sm:h-20 md:mt-0' height={72}>
+      <MantineHeader
+        className='fixed left-0 top-0 z-50 mt-2 box-border flex h-12 w-screen items-center justify-between border-none bg-transparent sm:h-20 md:mt-0'
+        height={72}>
         <div className='ml-2 flex items-center sm:ml-4'>
-          <Link aria-label='Go to homepage' className='float-left ml-2 flex items-center sm:ml-4' href='/'>
+          <Link
+            aria-label='Go to homepage'
+            className='float-left ml-2 flex items-center sm:ml-4'
+            href='/'>
             <div className='float-left mr-2 rounded-md bg-accent-secondary'>
               <CgFormatSlash className='text-2xl text-invert-secondary' />
             </div>
-            <p className='float-left hidden font-jakarta text-[19px] font-bold sm:block'>
+            <p className='float-left hidden font-jakarta text-[19px] font-semibold sm:block'>
               <span className='text-primary'>osmii</span>
               <span className='text-accent-secondary'>.dev</span>
             </p>
           </Link>
 
           <Link className='float-left ml-2 sm:ml-10' href='/blog'>
-            <p className='float-left font-jakarta text-xs font-semibold sm:text-sm'>
-              <span className='text-accent-primary transition-colors hover:text-accent-primary-hover'>Blog</span>
+            <p className='float-left font-geist text-xs font-medium text-accent-secondary transition-colors hover:text-accent-primary-hover sm:text-sm'>
+              Blog
             </p>
           </Link>
 
-          <Link className='float-left ml-4 sm:ml-6' href='/blog'>
-            <p className='float-left font-jakarta text-xs font-semibold sm:text-sm'>
-              <span className='text-accent-primary transition-colors hover:text-accent-primary-hover'>About</span>
+          <Link className='float-left ml-4 sm:ml-6' href='/about'>
+            <p className='float-left font-geist text-xs font-medium text-accent-secondary transition-colors hover:text-accent-primary-hover sm:text-sm'>
+              About
             </p>
           </Link>
 
           <div className='hidden items-center md:flex'>
             <Link className='float-left ml-8' href='/projects'>
-              <p className='float-left font-jakarta text-sm font-semibold'>
-                <span className='text-accent-secondary transition-colors hover:text-accent-secondary-hover'>Projects</span>
+              <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
+                Projects
               </p>
             </Link>
 
             <div className='mx-3 h-[3px] w-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/skills'>
-              <p className='float-left font-jakarta text-sm font-semibold'>
-                <span className='text-accent-secondary transition-colors hover:text-accent-secondary-hover'>Skills</span>
+              <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
+                Skills
               </p>
             </Link>
 
             <div className='mx-3 h-[3px] w-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/contact'>
-              <p className='float-left font-jakarta text-sm font-semibold'>
-                <span className='text-accent-secondary transition-colors hover:text-accent-secondary-hover'>Contact</span>
+              <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
+                Contact
               </p>
             </Link>
           </div>
@@ -227,12 +245,15 @@ export const Header: React.FC<object> = (): JSX.Element => {
                 color: 'rgb(var(--text-primary))',
                 padding: '2rem',
               },
-            }}
-          >
+            }}>
             <Menu.Target>
-              <Button className='float-left ml-4 block h-8 rounded-full bg-[rgba(var(--background-accent-secondary),0.6)] p-1 px-3 font-sans text-xs font-semibold text-primary transition-colors hover:bg-[rgba(var(--background-accent-secondary),0.7)] md:hidden md:h-10 md:px-4'>
+              <Button className='float-left ml-4 block h-8 rounded-full bg-[rgba(var(--background-accent-secondary),0.6)] p-1 px-3 font-sans text-xs font-medium text-primary transition-colors hover:bg-[rgba(var(--background-accent-secondary),0.7)] md:hidden md:h-10 md:px-4'>
                 <span className='text-xs text-invert-secondary md:text-[16px]'>More</span>
-                <svg className='ml-2 h-3 w-3 rotate-90 text-invert-secondary' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
+                <svg
+                  className='ml-2 h-3 w-3 rotate-90 text-invert-secondary'
+                  fill='currentColor'
+                  viewBox='0 0 20 20'
+                  xmlns='http://www.w3.org/2000/svg'>
                   <path d='M14.5 7.40192C16.5 8.55662 16.5 11.4434 14.5 12.5981L8.5 16.0622C6.5 17.2169 4 15.7735 4 13.4641L4 6.5359C4 4.2265 6.5 2.78312 8.5 3.93782L14.5 7.40192Z'></path>
                 </svg>
               </Button>
@@ -240,45 +261,51 @@ export const Header: React.FC<object> = (): JSX.Element => {
 
             <Menu.Dropdown className='p-2'>
               <Menu.Item
-                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
-                icon={<HiRectangleGroup />}
-              >
+                className='rounded-lg bg-transparent font-geist font-medium text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
+                icon={<HiRectangleGroup />}>
                 <Link href='/projects'>Projects</Link>
               </Menu.Item>
 
               <Menu.Item
-                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
-                icon={<HiWrenchScrewdriver />}
-              >
+                className='rounded-lg bg-transparent font-geist font-medium text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
+                icon={<HiWrenchScrewdriver />}>
                 <Link href='/skills'>Skills</Link>
               </Menu.Item>
 
               <Menu.Item
-                className='rounded-lg bg-transparent font-jakarta font-semibold text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
-                icon={<HiPaperAirplane />}
-              >
+                className='rounded-lg bg-transparent font-geist font-medium text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
+                icon={<HiPaperAirplane />}>
                 <Link href='/contact'>Contact</Link>
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
         </div>
         <div className='flex items-center'>
-          <SiGithub className='hidden text-invert-secondary xs:inline-block' size={22}></SiGithub>
+          <Link aria-label='Go to GitHub' href={'https://github.com/osmiidev'} target='_blank'>
+            <SiGithub
+              className='hidden text-invert-secondary transition-all hover:text-secondary xs:inline-block'
+              size={22}></SiGithub>
+          </Link>
           <div className='mx-3 hidden h-3 w-0 border-x border-primary xs:inline-block'></div>
           <Button
             unstyled
             aria-label='Open command palette'
-            className='mr-4 h-10 translate-y-0 rounded-lg bg-secondary px-3 font-sans font-semibold text-primary transition-colors hover:bg-secondary active:translate-y-[1px]'
+            className='mr-4 h-10 translate-y-0 rounded-lg border border-primary bg-secondary px-3 font-sans font-medium text-primary transition-colors hover:bg-secondary active:translate-y-[1px]'
             onClick={() => {
               setOpened(true);
-            }}
-          >
+            }}>
             <div className='flex items-center'>
               <HiCommandLine className='inline-block items-center text-sm' />
-              <span className='ml-2 hidden text-sm font-medium lg:inline-block'>Command Palette</span>
-              <span className='pointer-events-none ml-3 hidden rounded-sm border border-b-[2px] border-primary bg-primary p-1 py-[4px] font-mono text-3xs text-primary lg:inline-block'>CTRL</span>
+              <span className='ml-2 hidden font-geist text-sm font-medium lg:inline-block'>
+                Command Palette
+              </span>
+              <span className='border-b-px pointer-events-none ml-3 hidden rounded-sm border border-primary bg-primary p-1 py-[4px] font-geist-mono text-3xs font-medium text-primary lg:inline-block'>
+                CTRL
+              </span>
               <span className='ml-1 hidden pb-1 text-3xs lg:inline-block'>+</span>
-              <span className='pointer-events-none ml-1 hidden rounded-sm border border-b-[2px] border-primary bg-primary p-1 py-[4px] font-mono text-3xs text-primary lg:inline-block'>P</span>
+              <span className='border-b-px pointer-events-none ml-1 hidden rounded-sm border border-primary bg-primary p-1 py-[4px] font-geist-mono text-3xs font-medium text-primary lg:inline-block'>
+                P
+              </span>
             </div>
           </Button>
         </div>
@@ -301,8 +328,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
         opened={opened}
         p={1}
         withCloseButton={false}
-        onClose={() => setOpened(false)}
-      >
+        onClose={() => setOpened(false)}>
         <TextInput
           styles={{
             input: {
@@ -325,8 +351,12 @@ export const Header: React.FC<object> = (): JSX.Element => {
         <div className={`${styles.header} max-h-[500px] overflow-auto`}>
           {commands.map((command) =>
             query.split(' ').every((value) => command.tag.includes(value)) ? (
-              <div key={command.tag} className='relative flex h-10 cursor-pointer flex-row items-center hover:bg-primary-hover' onClick={() => command.click()}>
-                {command.icon} <Text className='ml-3 font-jakarta text-sm text-primary'>{command.name}</Text>
+              <div
+                key={command.tag}
+                className='relative flex h-10 cursor-pointer flex-row items-center hover:bg-primary-hover'
+                onClick={() => command.click()}>
+                {command.icon}{' '}
+                <Text className='ml-3 font-geist text-sm text-primary'>{command.name}</Text>
                 <div className='absolute right-0 mr-3 flex items-center'>{command.right}</div>
               </div>
             ) : (

@@ -1,8 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/geist/statics-woff/Geist-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/geist/statics-woff/Geist-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/geist/statics-woff/Geist-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/font/geist/statics-woff/Geist-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/font/geist-mono/statics-woff/GeistMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/font/geist-mono/statics-woff/GeistMono-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -54,8 +92,8 @@
 }
 :root[data-theme="dark"] {
   /* #09090b */ --background-primary: 9, 9, 11;
-  /* #101013 */ --background-primary-hover: 16, 16, 19;
-  /* #18181b */ --background-secondary: 24, 24, 27;
+  /* #0d0d0f */ --background-primary-hover: 13, 13, 15;
+  /* #121215 */ --background-secondary: 16, 16, 21;
   /* #202023 */ --background-secondary-hover: 32, 32, 35;
   /* #27272a */ --background-tertiary: 39, 39, 42;
   /* #4f46e5 */ --background-accent-primary: 79, 70, 229;
@@ -65,6 +103,7 @@
 
   /* #18181b */ --border-primary: 24, 24, 27;
   /* #232326 */ --border-secondary: 35, 35, 38;
+  /* #303033 */ --border-secondary-hover: 48, 48, 51;
   /* #303033 */ --border-tertiary: 48, 48, 51;
 
   /* #e5e5e5 */ --text-primary: 229, 229, 229;

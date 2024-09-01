@@ -46,10 +46,12 @@ module.exports = {
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
         'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'monospace'],
         'noto': ['Noto Sans', 'sans-serif'],
+        'geist': ['Geist', 'sans-serif'],
+        'geist-mono': ['Geist Mono', 'monospace'],
       },
       fontSize: {
+        'sm': '15px',
         '2xs': '.625rem', 
         '3xs': '.5rem'
       },
@@ -90,6 +92,9 @@ module.exports = {
         'accent-secondary-hover': 'rgb(var(--text-accent-secondary-hover))',
         'invert-primary-hover': 'rgb(var(--text-invert-primary-hover))',
         'invert-secondary-hover': 'rgb(var(--text-invert-secondary-hover))',
+
+
+        'blurple': '#5865F2',
       },
       width: {
         '120': '30rem',
