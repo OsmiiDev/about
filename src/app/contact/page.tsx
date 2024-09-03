@@ -95,6 +95,17 @@ export default function Home() {
     document.documentElement.setAttribute('data-theme', theme);
   });
 
+  const cdtToLocaleTimeString = (h: number, m: number) => {
+    const cdt = new Date();
+    cdt.setHours(h, m);
+    const date = new Date(cdt);
+    return date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      timeZone: 'America/Chicago',
+    });
+  };
+
   return (
     <>
       <Header />
@@ -103,8 +114,8 @@ export default function Home() {
         <div className='relative -z-10 flex h-[40rem] w-full items-start justify-center border-b border-b-secondary bg-secondary'>
           <div
             className={`${styles.grid} absolute left-0 top-0 -z-50 m-0 h-[32.5rem] w-full bg-secondary p-0`}>
-            <div className='relative h-full w-full'>
-              <div className={`${styles.gridInner} absolute h-full w-full`}></div>
+            <div className='relative size-full'>
+              <div className={`${styles.gridInner} absolute size-full`}></div>
             </div>
           </div>
           <div className={`${styles.slideFromLeft} px-4 pt-40 sm:px-8 md:w-270 md:px-16 lg:w-360`}>
@@ -116,49 +127,57 @@ export default function Home() {
               className={`${styles.contact} font-geist text-7xl font-medium tracking-normal text-primary`}>
               Contact
             </h2>
-            <h3 className='mt-8 font-jakarta text-xl font-normal tracking-normal text-secondary md:text-2xl'>
+            <h3 className='mt-8 font-geist text-xl font-normal tracking-normal text-secondary md:text-2xl'>
               If you want to get in touch, feel free to use any of the methods below.
             </h3>
+
+            <p className='mt-32 font-geist text-base text-primary'>
+              I&apos;m usually available between{' '}
+              <span className='rounded-md bg-secondary-hover p-1 px-2 text-secondary'>
+                {cdtToLocaleTimeString(8, 0)} and {cdtToLocaleTimeString(20, 0)}
+              </span>{' '}
+              (your time).
+            </p>
           </div>
         </div>
         <div className='relative mb-20 flex w-full flex-col justify-center lg:flex-row'>
           <div className='w-full px-4 pt-8 lg:w-[32.5rem] lg:pl-0 lg:pr-8 xl:w-[35rem]'>
             <Link href='https://discord.com/users/856580960073547787'>
               <div className='mt-4 flex h-16 items-center justify-start rounded-lg border border-secondary bg-secondary pl-4 transition-colors hover:border-secondary-hover'>
-                <SiDiscord className='h-6 w-6 text-blurple' />
+                <SiDiscord className='size-6 text-blurple' />
                 <p className='ml-4 font-geist-mono text-lg text-secondary'>@osmiidev</p>
               </div>
             </Link>
             <Link href='https://discord.com/users/328984108271140864'>
               <div className='mt-4 flex h-16 items-center justify-start rounded-lg border border-secondary bg-secondary pl-4 transition-colors hover:border-secondary-hover'>
-                <SiDiscord className='h-6 w-6 text-blurple' />
+                <SiDiscord className='size-6 text-blurple' />
                 <p className='ml-4 font-geist-mono text-lg text-secondary'>@osmii</p>
               </div>
             </Link>
             <Link href='mailto:contact@osmii.dev'>
               <div className='mt-4 flex h-16 items-center justify-start rounded-lg border border-secondary bg-secondary pl-4 transition-colors hover:border-secondary-hover'>
-                <TbMail className='h-6 w-6 text-secondary' />
+                <TbMail className='size-6 text-secondary' />
                 <p className='ml-4 font-geist-mono text-lg text-secondary'>contact@osmii.dev</p>
               </div>
             </Link>
             <Link href='https://x.com/osmiidev'>
               <div className='mt-4 flex h-16 items-center justify-start rounded-lg border border-secondary bg-secondary pl-4 transition-colors hover:border-secondary-hover'>
-                <SiX className='h-6 w-6 text-primary' />
+                <SiX className='size-6 text-primary' />
                 <p className='ml-4 font-geist-mono text-lg text-secondary'>@osmiidev</p>
               </div>
             </Link>
             <Link href='https://signal.me/#eu/vIOyMAaItIHOU62PKvLrJoVxVYOKfrWvIjcYLuBcwx7N5B7pjoFAOotjvS2OtS70'>
               <div className='mt-4 flex h-16 items-center justify-start rounded-lg border border-secondary bg-secondary pl-4 transition-colors hover:border-secondary-hover'>
-                <SiSignal className='h-6 w-6 text-accent-secondary' />
+                <SiSignal className='size-6 text-accent-secondary' />
                 <p className='ml-4 font-geist-mono text-lg text-secondary'>Osmii.76</p>
               </div>
             </Link>
           </div>
-          <div className='relative mb-32 mt-4 w-full px-4 lg:w-[32.5rem] lg:px-0 lg:pt-0 xl:w-[37.5rem]'>
+          <div className='relative mb-32 mt-4 w-full px-4 lg:w-[32.5rem] lg:px-0 lg:pt-0 xl:w-150'>
             <div className='flex h-[500px] w-full flex-col overflow-hidden rounded-lg border border-secondary bg-secondary lg:absolute lg:-top-14 lg:ml-4'>
-              <div className='flex h-[4rem] w-full shrink-0 items-center justify-between border-b border-b-secondary bg-primary px-4'>
+              <div className='flex h-16 w-full shrink-0 items-center justify-between border-b border-b-secondary bg-primary px-4'>
                 <div className='flex items-center justify-center'>
-                  <HiDocumentText className='mr-1 h-5 w-5 text-primary' />
+                  <HiDocumentText className='mr-1 size-5 text-primary' />
                   <h4 className='pt-0.5 font-geist font-medium text-primary'> PGP Public Key </h4>
                   <Popover
                     styles={{
@@ -169,8 +188,8 @@ export default function Home() {
                       },
                     }}>
                     <Popover.Target>
-                      <div className='ml-2 hidden h-8 w-8 items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary-hover sm:flex'>
-                        <TbQuestionMark className='h-4 w-4 text-primary' />
+                      <div className='ml-2 hidden size-8 items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary-hover sm:flex'>
+                        <TbQuestionMark className='size-4 text-primary' />
                       </div>
                     </Popover.Target>
                     <Popover.Dropdown title='What is a PGP key?'>
@@ -204,7 +223,7 @@ export default function Home() {
                       document.body.appendChild(element);
                       element.click();
                     }}>
-                    <HiDownload className='mr-1 h-4 w-4 text-primary' />
+                    <HiDownload className='mr-1 size-4 text-primary' />
                     <p className='font-geist text-xs font-medium uppercase text-primary'>
                       Download
                     </p>

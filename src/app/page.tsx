@@ -18,6 +18,7 @@ import { HiOutlinePaperAirplane } from 'react-icons/hi2';
 import { showNotification } from '@mantine/notifications';
 import styles from './page.module.css';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 /**
  * @description - The home page (/).
@@ -77,8 +78,8 @@ export default function Home() {
 
       <main className='m-0 flex items-center justify-center p-0'>
         <div className={`${styles.grid} absolute left-0 top-0 -z-50 m-0 h-[40rem] w-full p-0`}>
-          <div className='relative h-full w-full'>
-            <div className={`${styles.gridInner} absolute h-full w-full`}></div>
+          <div className='relative size-full'>
+            <div className={`${styles.gridInner} absolute size-full`}></div>
           </div>
         </div>
 
@@ -98,17 +99,18 @@ export default function Home() {
             </Text>
 
             <div className='mt-8 flex flex-row items-center md:mt-[3.25rem]'>
-              <button className='mr-2 flex h-11 translate-y-0 items-center rounded-xl bg-accent-secondary px-3 transition-all hover:-translate-y-px hover:bg-accent-secondary-hover active:translate-y-px md:h-[3.25rem] md:px-5'>
-                <div className='mb-1 ml-1'>
-                  <HiOutlinePaperAirplane className='-rotate-45 items-center text-[16px] text-invert-secondary md:text-lg' />
-                </div>
-                <Text className='m-1 ml-1.5 font-jakarta text-sm font-medium tracking-wide text-invert-secondary md:text-[16px]'>
-                  {' '}
-                  Get in Touch{' '}
-                </Text>
-              </button>
+              <Link href='/contact'>
+                <button className='mr-2 flex h-11 translate-y-0 items-center rounded-xl bg-accent-secondary px-3 transition-all hover:-translate-y-px hover:bg-accent-secondary-hover active:translate-y-px md:h-[3.25rem] md:px-5'>
+                  <div className='mb-1 ml-1'>
+                    <HiOutlinePaperAirplane className='-rotate-45 items-center text-[16px] text-invert-secondary md:text-lg' />
+                  </div>
+                  <Text className='m-1 ml-1.5 font-jakarta text-sm font-medium tracking-wide text-invert-secondary md:text-[16px]'>
+                    Get in Touch
+                  </Text>
+                </button>
+              </Link>
 
-              <button className='flex items-center p-2 py-[0.875rem] font-jakarta text-[14px] font-semibold text-primary opacity-70 transition-opacity hover:opacity-100 md:ml-6 md:p-0 md:text-[16px] md:font-bold'>
+              <button className='flex items-center p-2 py-3.5 font-jakarta text-[14px] font-semibold text-primary opacity-70 transition-opacity hover:opacity-100 md:ml-6 md:p-0 md:text-[16px] md:font-bold'>
                 <HiDocumentText className='mr-0.5 text-lg md:mr-1.5 md:text-xl' /> RESUME
               </button>
             </div>
@@ -141,7 +143,7 @@ export default function Home() {
                 },
               }}
               alt='Developer'
-              className='mt-16 !h-[30rem] !w-[30rem] rounded-full object-cover xl:-mt-4 xl:!h-[42rem] xl:!w-[42rem]'
+              className='mt-16 !h-120 !w-120 rounded-full object-cover xl:-mt-4 xl:!h-[42rem] xl:!w-[42rem]'
               src='/profile.webp'
               width='100%'
             />

@@ -13,16 +13,18 @@ import {
   HiRectangleGroup,
   HiWrenchScrewdriver,
 } from 'react-icons/hi2';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { CgFormatSlash } from 'react-icons/cg';
 import { HiOutlineMoon } from 'react-icons/hi';
 import Link from 'next/link';
 import { SiGithub } from 'react-icons/si';
 import styles from './Header.module.css';
+import { useRouter } from 'next/navigation';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
 
 type Command = {
-  click: () => void;
+  click: (router: AppRouterInstance) => void;
   icon: JSX.Element;
   name: string;
   right: JSX.Element;
@@ -31,7 +33,7 @@ type Command = {
 
 const commands: Command[] = [
   {
-    click: () => {
+    click: (router: AppRouterInstance) => {
       const root = document.querySelector(':root');
       root?.setAttribute(
         'data-theme',
@@ -57,7 +59,8 @@ const commands: Command[] = [
     tag: 'toggle dark mode',
   },
   {
-    click: () => {
+    click: (router: AppRouterInstance) => {
+      router.push('/');
       return;
     },
     icon: <HiOutlineHome className='ml-4 text-lg text-primary' />,
@@ -66,7 +69,8 @@ const commands: Command[] = [
     tag: 'goto navigate go to home /',
   },
   {
-    click: () => {
+    click: (router: AppRouterInstance) => {
+      router.push('/about');
       return;
     },
     icon: <HiOutlineInformationCircle className='ml-4 text-lg text-primary' />,
@@ -75,7 +79,8 @@ const commands: Command[] = [
     tag: 'goto navigate go to about /about',
   },
   {
-    click: () => {
+    click: (router: AppRouterInstance) => {
+      router.push('/blog');
       return;
     },
     icon: <HiOutlineChatBubbleLeftRight className='ml-4 text-lg text-primary' />,
@@ -84,7 +89,8 @@ const commands: Command[] = [
     tag: 'goto navigate go to blog /blog',
   },
   {
-    click: () => {
+    click: (router: AppRouterInstance) => {
+      router.push('/contact');
       return;
     },
     icon: <HiOutlinePaperAirplane className='ml-4 -rotate-45 text-lg text-primary' />,
@@ -93,7 +99,8 @@ const commands: Command[] = [
     tag: 'goto navigate go to contact /contact',
   },
   {
-    click: () => {
+    click: (router: AppRouterInstance) => {
+      router.push('/projects');
       return;
     },
     icon: <HiOutlineRectangleGroup className='ml-4 text-lg text-primary' />,
@@ -102,7 +109,8 @@ const commands: Command[] = [
     tag: 'goto navigate go to project projects /project /projects',
   },
   {
-    click: () => {
+    click: (router: AppRouterInstance) => {
+      router.push('/skills');
       return;
     },
     icon: <HiOutlineWrenchScrewdriver className='ml-4 text-lg text-primary' />,
@@ -173,6 +181,8 @@ export const Header: React.FC<object> = (): JSX.Element => {
     });
   });
 
+  const router = useRouter();
+
   const [opened, setOpened] = useState(false);
   const [query, setQuery] = useState('');
 
@@ -214,7 +224,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               </p>
             </Link>
 
-            <div className='mx-3 h-[3px] w-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
+            <div className='mx-3 size-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/skills'>
               <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
@@ -222,7 +232,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               </p>
             </Link>
 
-            <div className='mx-3 h-[3px] w-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
+            <div className='mx-3 size-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/contact'>
               <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
@@ -250,7 +260,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               <Button className='float-left ml-4 block h-8 rounded-full bg-[rgba(var(--background-accent-secondary),0.6)] p-1 px-3 font-sans text-xs font-medium text-primary transition-colors hover:bg-[rgba(var(--background-accent-secondary),0.7)] md:hidden md:h-10 md:px-4'>
                 <span className='text-xs text-invert-secondary md:text-[16px]'>More</span>
                 <svg
-                  className='ml-2 h-3 w-3 rotate-90 text-invert-secondary'
+                  className='ml-2 size-3 rotate-90 text-invert-secondary'
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'>
@@ -290,7 +300,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
           <Button
             unstyled
             aria-label='Open command palette'
-            className='mr-4 h-10 translate-y-0 rounded-lg border border-primary bg-secondary px-3 font-sans font-medium text-primary transition-colors hover:bg-secondary active:translate-y-[1px]'
+            className='mr-4 h-10 translate-y-0 rounded-lg border border-primary bg-secondary px-3 font-sans font-medium text-primary transition-colors hover:bg-secondary active:translate-y-px'
             onClick={() => {
               setOpened(true);
             }}>
@@ -344,7 +354,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               width: 'calc(100% - 20px)',
             },
           }}
-          onChange={(event) => {
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setQuery(event.target.value.toLowerCase());
           }}
         />
@@ -354,7 +364,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               <div
                 key={command.tag}
                 className='relative flex h-10 cursor-pointer flex-row items-center hover:bg-primary-hover'
-                onClick={() => command.click()}>
+                onClick={() => command.click(router)}>
                 {command.icon}{' '}
                 <Text className='ml-3 font-geist text-sm text-primary'>{command.name}</Text>
                 <div className='absolute right-0 mr-3 flex items-center'>{command.right}</div>

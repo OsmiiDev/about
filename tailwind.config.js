@@ -95,6 +95,8 @@ module.exports = {
 
 
         'blurple': '#5865F2',
+        'moby-blue': '#1D63ED',
+        'git-red': '#F03C2E',
       },
       width: {
         '120': '30rem',
