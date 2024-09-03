@@ -78,8 +78,8 @@ export default function Home() {
 
       <main className='m-0 flex items-center justify-center p-0'>
         <div className={`${styles.grid} absolute left-0 top-0 -z-50 m-0 h-[40rem] w-full p-0`}>
-          <div className='relative size-full'>
-            <div className={`${styles.gridInner} absolute size-full`}></div>
+          <div className='size-full relative'>
+            <div className={`${styles.gridInner} size-full absolute`}></div>
           </div>
         </div>
 

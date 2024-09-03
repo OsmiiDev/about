@@ -114,8 +114,8 @@ export default function Home() {
         <div className='relative -z-10 flex h-[40rem] w-full items-start justify-center border-b border-b-secondary bg-secondary'>
           <div
             className={`${styles.grid} absolute left-0 top-0 -z-50 m-0 h-[32.5rem] w-full bg-secondary p-0`}>
-            <div className='relative size-full'>
-              <div className={`${styles.gridInner} absolute size-full`}></div>
+            <div className='size-full relative'>
+              <div className={`${styles.gridInner} size-full absolute`}></div>
             </div>
           </div>
           <div className={`${styles.slideFromLeft} px-4 pt-40 sm:px-8 md:w-270 md:px-16 lg:w-360`}>
@@ -177,7 +177,7 @@ export default function Home() {
             <div className='flex h-[500px] w-full flex-col overflow-hidden rounded-lg border border-secondary bg-secondary lg:absolute lg:-top-14 lg:ml-4'>
               <div className='flex h-16 w-full shrink-0 items-center justify-between border-b border-b-secondary bg-primary px-4'>
                 <div className='flex items-center justify-center'>
-                  <HiDocumentText className='mr-1 size-5 text-primary' />
+                  <HiDocumentText className='size-5 mr-1 text-primary' />
                   <h4 className='pt-0.5 font-geist font-medium text-primary'> PGP Public Key </h4>
                   <Popover
                     styles={{
@@ -188,7 +188,7 @@ export default function Home() {
                       },
                     }}>
                     <Popover.Target>
-                      <div className='ml-2 hidden size-8 items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary-hover sm:flex'>
+                      <div className='size-8 ml-2 hidden items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary-hover sm:flex'>
                         <TbQuestionMark className='size-4 text-primary' />
                       </div>
                     </Popover.Target>
@@ -223,7 +223,7 @@ export default function Home() {
                       document.body.appendChild(element);
                       element.click();
                     }}>
-                    <HiDownload className='mr-1 size-4 text-primary' />
+                    <HiDownload className='size-4 mr-1 text-primary' />
                     <p className='font-geist text-xs font-medium uppercase text-primary'>
                       Download
                     </p>

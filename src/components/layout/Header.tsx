@@ -224,7 +224,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               </p>
             </Link>
 
-            <div className='mx-3 size-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
+            <div className='size-[3px] mx-3 rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/skills'>
               <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
@@ -232,7 +232,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               </p>
             </Link>
 
-            <div className='mx-3 size-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
+            <div className='size-[3px] mx-3 rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/contact'>
               <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
@@ -260,7 +260,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               <Button className='float-left ml-4 block h-8 rounded-full bg-[rgba(var(--background-accent-secondary),0.6)] p-1 px-3 font-sans text-xs font-medium text-primary transition-colors hover:bg-[rgba(var(--background-accent-secondary),0.7)] md:hidden md:h-10 md:px-4'>
                 <span className='text-xs text-invert-secondary md:text-[16px]'>More</span>
                 <svg
-                  className='ml-2 size-3 rotate-90 text-invert-secondary'
+                  className='size-3 ml-2 rotate-90 text-invert-secondary'
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'>
