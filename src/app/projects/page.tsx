@@ -67,8 +67,8 @@ export default function Home() {
         <div className='relative -z-10 flex h-[40rem] w-full items-start justify-center border-b border-b-secondary bg-secondary'>
           <div
             className={`${styles.grid} absolute left-0 top-0 -z-50 m-0 h-[32.5rem] w-full bg-secondary p-0`}>
-            <div className='relative h-full w-full'>
-              <div className={`${styles.gridInner} absolute h-full w-full`}></div>
+            <div className='relative size-full'>
+              <div className={`${styles.gridInner} absolute size-full`}></div>
             </div>
           </div>
           <div className={`${styles.slideFromLeft} px-4 pt-40 sm:px-8 md:w-270 md:px-16 lg:w-360`}>
@@ -86,7 +86,7 @@ export default function Home() {
             <div className='mr-8 mt-4 h-32 rounded-lg border border-secondary bg-secondary'></div>
             <div className='mr-8 mt-4 h-32 rounded-lg border border-secondary bg-secondary'></div>
           </div>
-          <div className='relative mb-32 w-[37.5rem]'>
+          <div className='relative mb-32 w-150'>
             <div className='absolute -top-10 ml-4 flex h-96 w-full overflow-hidden rounded-lg border border-secondary bg-secondary'>
               <div className='h-[4.5rem] w-full border-b border-b-secondary bg-primary'></div>
             </div>
