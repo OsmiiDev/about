@@ -3,6 +3,11 @@
 import './globals.css';
 import '@mantine/core/styles.layer.css';
 import {MantineProvider} from '@mantine/core';
+import {Metadata} from 'next';
+
+
+export const metadata: Metadata = {title: 'Osmii • Fullstack and Machine Learning Developer'};
+
 
 /**
  * @description - The root layout of the application
