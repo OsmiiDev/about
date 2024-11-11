@@ -41,7 +41,7 @@
     "typescript.tsdk": "node_modules\\.pnpm\\typescript@5.0.2\\node_modules\\typescript\\lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"

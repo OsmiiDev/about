@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Header as MantineHeader, Menu, Modal, Text, TextInput } from '@mantine/core';
+import {Button, Menu, Modal, Text, TextInput} from '@mantine/core';
 import {
   HiCommandLine,
   HiOutlineChatBubbleLeftRight,
@@ -13,15 +13,15 @@ import {
   HiRectangleGroup,
   HiWrenchScrewdriver,
 } from 'react-icons/hi2';
-import { ChangeEvent, useEffect, useState } from 'react';
+import {ChangeEvent, useEffect, useState} from 'react';
 
-import { CgFormatSlash } from 'react-icons/cg';
-import { HiOutlineMoon } from 'react-icons/hi';
+import {CgFormatSlash} from 'react-icons/cg';
+import {HiOutlineMoon} from 'react-icons/hi';
 import Link from 'next/link';
-import { SiGithub } from 'react-icons/si';
+import {SiGithub} from 'react-icons/si';
 import styles from './Header.module.css';
-import { useRouter } from 'next/navigation';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
+import {useRouter} from 'next/navigation';
+import {AppRouterInstance} from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 type Command = {
   click: (router: AppRouterInstance) => void;
@@ -36,8 +36,8 @@ const commands: Command[] = [
     click: (router: AppRouterInstance) => {
       const root = document.querySelector(':root');
       root?.setAttribute(
-        'data-theme',
-        root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+          'data-theme',
+        root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark',
       );
       localStorage.setItem('theme', root?.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
@@ -124,7 +124,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 0) {
-        const header = document.querySelector('header.mantine-Header-root');
+        const header = document.querySelector('div#header-root');
         if (header) {
           header.classList.remove('border-none');
           header.classList.add('border-b');
@@ -139,7 +139,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
           header.classList.add('h-10');
         }
       } else {
-        const header = document.querySelector('header.mantine-Header-root');
+        const header = document.querySelector('div#header-root');
         if (header) {
           header.classList.remove('border-b');
           header.classList.remove('border-primary');
@@ -170,12 +170,12 @@ export const Header: React.FC<object> = (): JSX.Element => {
 
         const root = document.querySelector(':root');
         root?.setAttribute(
-          'data-theme',
-          root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+            'data-theme',
+          root?.getAttribute('data-theme') === 'dark' ? 'light' : 'dark',
         );
         localStorage.setItem(
-          'theme',
-          root?.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+            'theme',
+          root?.getAttribute('data-theme') === 'dark' ? 'dark' : 'light',
         );
       }
     });
@@ -188,9 +188,9 @@ export const Header: React.FC<object> = (): JSX.Element => {
 
   return (
     <>
-      <MantineHeader
+      <div
         className='fixed left-0 top-0 z-50 mt-2 box-border flex h-12 w-screen items-center justify-between border-none bg-transparent sm:h-20 md:mt-0'
-        height={72}>
+        id='header-root'>
         <div className='ml-2 flex items-center sm:ml-4'>
           <Link
             aria-label='Go to homepage'
@@ -224,7 +224,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               </p>
             </Link>
 
-            <div className='size-[3px] mx-3 rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
+            <div className='mx-3 size-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/skills'>
               <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
@@ -232,7 +232,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               </p>
             </Link>
 
-            <div className='size-[3px] mx-3 rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
+            <div className='mx-3 size-[3px] rounded-[50%] bg-[rgb(var(--text-secondary))]'></div>
 
             <Link className='float-left' href='/contact'>
               <p className='float-left font-geist text-xs font-medium text-accent-primary transition-colors hover:text-accent-primary-hover sm:text-sm'>
@@ -248,19 +248,19 @@ export const Header: React.FC<object> = (): JSX.Element => {
                   backgroundColor: 'rgba(var(--background-accent-secondary),0.25)',
                   color: 'rgb(var(--text-accent-hover))',
                 },
-                backdropFilter: 'blur(10px)',
-                backgroundColor: 'rgba(var(--background-secondary), 0.75)',
-                border: '1px solid rgb(var(--border-primary))',
-                borderRadius: '0.5rem',
-                color: 'rgb(var(--text-primary))',
-                padding: '2rem',
+                'backdropFilter': 'blur(10px)',
+                'backgroundColor': 'rgba(var(--background-secondary), 0.75)',
+                'border': '1px solid rgb(var(--border-primary))',
+                'borderRadius': '0.5rem',
+                'color': 'rgb(var(--text-primary))',
+                'padding': '2rem',
               },
             }}>
             <Menu.Target>
               <Button className='float-left ml-4 block h-8 rounded-full bg-[rgba(var(--background-accent-secondary),0.6)] p-1 px-3 font-sans text-xs font-medium text-primary transition-colors hover:bg-[rgba(var(--background-accent-secondary),0.7)] md:hidden md:h-10 md:px-4'>
                 <span className='text-xs text-invert-secondary md:text-[16px]'>More</span>
                 <svg
-                  className='size-3 ml-2 rotate-90 text-invert-secondary'
+                  className='ml-2 size-3 rotate-90 text-invert-secondary'
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'>
@@ -272,19 +272,19 @@ export const Header: React.FC<object> = (): JSX.Element => {
             <Menu.Dropdown className='p-2'>
               <Menu.Item
                 className='rounded-lg bg-transparent font-geist font-medium text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
-                icon={<HiRectangleGroup />}>
+                leftSection={<HiRectangleGroup />}>
                 <Link href='/projects'>Projects</Link>
               </Menu.Item>
 
               <Menu.Item
                 className='rounded-lg bg-transparent font-geist font-medium text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
-                icon={<HiWrenchScrewdriver />}>
+                leftSection={<HiWrenchScrewdriver />}>
                 <Link href='/skills'>Skills</Link>
               </Menu.Item>
 
               <Menu.Item
                 className='rounded-lg bg-transparent font-geist font-medium text-accent-secondary transition-colors hover:bg-[rgba(var(--background-accent-primary-hover),0.2)] hover:text-accent-secondary-hover'
-                icon={<HiPaperAirplane />}>
+                leftSection={<HiPaperAirplane />}>
                 <Link href='/contact'>Contact</Link>
               </Menu.Item>
             </Menu.Dropdown>
@@ -319,11 +319,12 @@ export const Header: React.FC<object> = (): JSX.Element => {
             </div>
           </Button>
         </div>
-      </MantineHeader>
+      </div>
+
       <Modal
         centered
         styles={{
-          body: { padding: '6px' },
+          body: {padding: '6px'},
           content: {
             backgroundColor: 'rgb(var(--background-primary))',
             border: '1px solid rgba(rgb(var(--border-primary)), 0.35)',
@@ -333,8 +334,9 @@ export const Header: React.FC<object> = (): JSX.Element => {
             padding: '0px !important',
             width: '600px',
           },
-          root: { padding: '0px' },
+          root: {padding: '0px'},
         }}
+        className='fixed'
         opened={opened}
         p={1}
         withCloseButton={false}
@@ -342,16 +344,17 @@ export const Header: React.FC<object> = (): JSX.Element => {
         <TextInput
           styles={{
             input: {
-              ':focus': { borderColor: 'transparent' },
-              backgroundColor: 'rgb(var(--background-secondary-hover))',
-              borderColor: 'transparent',
-              borderRadius: '0.5rem',
-              boxSizing: 'border-box',
-              color: 'rgb(var(--text-primary))',
-              fontFamily: "'JetBrains Mono'",
-              fontSize: '0.75rem',
-              margin: '10px',
-              width: 'calc(100% - 20px)',
+              ':focus': {borderColor: 'transparent'},
+              'backgroundColor': 'rgb(var(--background-secondary-hover))',
+              'borderColor': 'transparent',
+              'borderRadius': '0.5rem',
+              'boxSizing': 'border-box',
+              'color': 'rgb(var(--text-primary))',
+              'fontFamily': '\'JetBrains Mono\'',
+              'fontSize': '0.75rem',
+              'margin': '10px',
+              'paddingLeft': '8px',
+              'width': 'calc(100% - 20px)',
             },
           }}
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
@@ -371,7 +374,7 @@ export const Header: React.FC<object> = (): JSX.Element => {
               </div>
             ) : (
               <> </>
-            )
+            ),
           )}
         </div>
       </Modal>

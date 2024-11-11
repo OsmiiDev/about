@@ -42,7 +42,9 @@
   font-style: normal;
 }
 
-@tailwind base;
+@layer tailwind {
+  @tailwind base;
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -136,3 +138,9 @@ code {
     monospace;
 }
 
+
+
+
+:root {
+  scroll-behavior: smooth;
+}

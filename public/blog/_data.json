@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+      "id": "silly-blog-post",
+      "title": "Silly Blog Post",
+      "date": 1725915371,
+      "tags": ["wow"]
+    }
+  ]
+}

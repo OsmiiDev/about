@@ -1,7 +1,7 @@
 'use client';
 
-import { HiDocumentText, HiOutlineInformationCircle } from 'react-icons/hi';
-import { Image, Text, Title } from '@mantine/core';
+import {HiDocumentText} from 'react-icons/hi';
+import {Image, Text} from '@mantine/core';
 import {
   SiCplusplus,
   SiGit,
@@ -13,64 +13,24 @@ import {
   SiVisualstudiocode,
 } from 'react-icons/si';
 
-import { Header } from '@/components/layout/Header';
-import { HiOutlinePaperAirplane } from 'react-icons/hi2';
-import { showNotification } from '@mantine/notifications';
+import {Header} from '@/components/layout/Header';
+import {HiOutlinePaperAirplane} from 'react-icons/hi2';
 import styles from './page.module.css';
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import Link from 'next/link';
+import {useLocalStorage} from '@/hooks/LocalStorage';
 
 /**
  * @description - The home page (/).
  * @return {JSX.Element} - The home page.
  */
 export default function Home() {
-  useEffect(() => {
-    showNotification({
-      autoClose: 10_000,
-      closeButtonProps: { 'aria-label': 'Close notification' },
-      icon: <HiOutlineInformationCircle size={18} />,
-      message: 'This website is still in development, and many links are not yet working.',
-      styles: {
-        closeButton: {
-          ':hover': { backgroundColor: 'rgba(var(--background-secondary-color), 0.75)' },
-          backgroundColor: 'transparent',
-          color: 'rgb(var(--text-primary))',
-          transition: '200ms',
-        },
-        description: {
-          color: 'rgb(var(--text-primary))',
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: '0.875rem',
-        },
-        icon: {
-          backgroundColor: 'rgb(var(--background-accent-primary)) !important',
-          color: 'rgb(var(--text-primary))',
-          height: '32px',
-          width: '32px',
-        },
-        root: {
-          backgroundColor: 'rgb(var(--background-primary))',
-          border: '1px solid rgb(var(--border-secondary))',
-          padding: '0.875rem !important',
-        },
-        title: {
-          color: 'rgb(var(--text-primary))',
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: '1.0625rem',
-        },
-      },
-      title: 'In Progress!',
-    });
+  const [theme, _] = useLocalStorage('theme', 'light');
 
-    // get theme
-    const theme =
-      localStorage.getItem('theme') || matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-    localStorage.setItem('theme', theme);
+  useEffect(() => {
+    console.log('theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
-  });
+  }, [theme]);
 
   return (
     <>
@@ -78,25 +38,25 @@ export default function Home() {
 
       <main className='m-0 flex items-center justify-center p-0'>
         <div className={`${styles.grid} absolute left-0 top-0 -z-50 m-0 h-[40rem] w-full p-0`}>
-          <div className='size-full relative'>
-            <div className={`${styles.gridInner} size-full absolute`}></div>
+          <div className='relative size-full'>
+            <div className={`${styles.gridInner} absolute size-full`}></div>
           </div>
         </div>
 
         <div className='relative mx-4 mt-8 box-border flex justify-between p-0 px-1 sm:mx-8 sm:mt-12 md:mt-20 lg:w-240 xl:w-330'>
           <div className={`${styles.slideFromLeft} md:ml-8 lg:mr-12 lg:mt-16`}>
-            <Title className='mt-10 font-jakarta text-[1.9rem] font-medium tracking-normal text-primary antialiased sm:text-[3rem] md:text-[4rem] xl:text-[4.5rem]'>
+            <h1 className='mt-10 font-jakarta text-[1.9rem] font-medium tracking-normal text-primary antialiased sm:text-[3rem] md:text-[4rem] xl:text-[4.5rem]'>
               <span>Hey &#128075;. I&#39;m </span>
               <span className={`${styles.name}`}>Osmii</span>
               <span>,</span>
-            </Title>
+            </h1>
 
-            <Text className='mt-2 w-full font-jakarta text-[0.95rem] font-medium text-secondary md:mt-4 md:w-9/12 md:text-[1.25rem] md:font-light xl:text-[1.35rem]'>
+            <h3 className='mt-2 w-full font-jakarta text-[0.95rem] font-medium text-secondary md:mt-4 md:w-9/12 md:text-[1.25rem] md:font-light xl:text-[1.35rem]'>
               an aspiring <span className={`${styles.bolded}`}>full-stack developer</span> with
               interests in
               <span className={`${styles.bolded}`}> natural language processing</span> and
               <span className={`${styles.bolded}`}> cybersecurity</span>.
-            </Text>
+            </h3>
 
             <div className='mt-8 flex flex-row items-center md:mt-[3.25rem]'>
               <Link href='/contact'>
@@ -135,7 +95,7 @@ export default function Home() {
           <div className='absolute right-0 -z-50 hidden lg:block'>
             <Image
               styles={{
-                image: {
+                root: {
                   borderRadius: '50%',
                   height: '320px',
                   objectFit: 'cover',

@@ -1,19 +1,19 @@
 'use client';
 
-import { HiDocumentText, HiDownload, HiOutlineInformationCircle } from 'react-icons/hi';
-import { Popover } from '@mantine/core';
-import { SiDiscord, SiSignal, SiX } from 'react-icons/si';
+import {HiDocumentText, HiDownload} from 'react-icons/hi';
+import {Popover} from '@mantine/core';
+import {SiDiscord, SiSignal, SiX} from 'react-icons/si';
 
-import { TbMail, TbQuestionMark } from 'react-icons/tb';
+import {TbMail, TbQuestionMark} from 'react-icons/tb';
 
-import { Header } from '@/components/layout/Header';
-import { showNotification } from '@mantine/notifications';
+import {Header} from '@/components/layout/Header';
 import styles from './page.module.css';
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import Link from 'next/link';
+import {HeadContainer} from '@/components/layout/HeadContainer';
+import {useLocalStorage} from '@/hooks/LocalStorage';
 
 const HARDCODED_PGP_KUBLIC_KEY_BECAUSE_IM_LAZY = `-----BEGIN PGP PUBLIC KEY BLOCK-----
-
 mQENBGbT1tIBCAC2vt7v4FylPUVdLct9+7s7B8kttMtw3+AnH6gcZFgCFH/j4d8+
 akvu8mWWsaSQFKA4pGtZ6UDHTsEz3PDthBXPCDXOw3wxTf0XGENm0qLvwXwhKomK
 1L03UOc49eNoivT3W4PDLeWJsdH9ai/kfHc4+oCFkyoZwVgNP24icvI4LUq8P1A1
@@ -43,57 +43,13 @@ u5KfJMVFJiQD6bhHnYRolVM7QcnU8URBOj0C8+gFnRsx
 =/+7w
 -----END PGP PUBLIC KEY BLOCK-----`;
 
-/**
- * @description - The home page (/).
- * @return {JSX.Element} - The home page.
- */
-export default function Home() {
-  useEffect(() => {
-    showNotification({
-      autoClose: 10_000,
-      closeButtonProps: { 'aria-label': 'Close notification' },
-      icon: <HiOutlineInformationCircle size={18} />,
-      message: 'This website is still in development, and many links are not yet working.',
-      styles: {
-        closeButton: {
-          ':hover': { backgroundColor: 'rgba(var(--background-secondary-color), 0.75)' },
-          backgroundColor: 'transparent',
-          color: 'rgb(var(--text-primary))',
-          transition: '200ms',
-        },
-        description: {
-          color: 'rgb(var(--text-primary))',
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: '0.875rem',
-        },
-        icon: {
-          backgroundColor: 'rgb(var(--background-accent-primary)) !important',
-          color: 'rgb(var(--text-primary))',
-          height: '32px',
-          width: '32px',
-        },
-        root: {
-          backgroundColor: 'rgb(var(--background-primary))',
-          border: '1px solid rgb(var(--border-secondary))',
-          padding: '0.875rem !important',
-        },
-        title: {
-          color: 'rgb(var(--text-primary))',
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: '1.0625rem',
-        },
-      },
-      title: 'In Progress!',
-    });
+export default function Contact() {
+  const [theme, _] = useLocalStorage('theme', 'light');
 
-    // get theme
-    const theme =
-      localStorage.getItem('theme') || matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-    localStorage.setItem('theme', theme);
+  useEffect(() => {
+    console.log('theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
-  });
+  }, [theme]);
 
   const cdtToLocaleTimeString = (h: number, m: number) => {
     const cdt = new Date();
@@ -111,35 +67,27 @@ export default function Home() {
       <Header />
 
       <main className='m-0 flex flex-col items-center justify-center p-0'>
-        <div className='relative -z-10 flex h-[40rem] w-full items-start justify-center border-b border-b-secondary bg-secondary'>
-          <div
-            className={`${styles.grid} absolute left-0 top-0 -z-50 m-0 h-[32.5rem] w-full bg-secondary p-0`}>
-            <div className='size-full relative'>
-              <div className={`${styles.gridInner} size-full absolute`}></div>
-            </div>
-          </div>
-          <div className={`${styles.slideFromLeft} px-4 pt-40 sm:px-8 md:w-270 md:px-16 lg:w-360`}>
-            <h4
-              className={`${styles.category} mb-1 ml-2 font-geist text-xl font-medium tracking-normal text-accent-primary`}>
-              Work
-            </h4>
-            <h2
-              className={`${styles.contact} font-geist text-7xl font-medium tracking-normal text-primary`}>
-              Contact
-            </h2>
-            <h3 className='mt-8 font-geist text-xl font-normal tracking-normal text-secondary md:text-2xl'>
-              If you want to get in touch, feel free to use any of the methods below.
-            </h3>
+        <HeadContainer>
+          <h4
+            className={`${styles.category} mb-1 ml-2 font-geist text-xl font-medium tracking-normal text-accent-primary`}>
+            Work
+          </h4>
+          <h2
+            className={`${styles.contact} font-geist text-7xl font-medium tracking-normal text-primary`}>
+            Contact
+          </h2>
+          <h3 className='mt-8 font-geist text-xl font-normal tracking-normal text-secondary md:text-2xl'>
+            If you want to get in touch, feel free to use any of the methods below.
+          </h3>
 
-            <p className='mt-32 font-geist text-base text-primary'>
-              I&apos;m usually available between{' '}
-              <span className='rounded-md bg-secondary-hover p-1 px-2 text-secondary'>
-                {cdtToLocaleTimeString(8, 0)} and {cdtToLocaleTimeString(20, 0)}
-              </span>{' '}
-              (your time).
-            </p>
-          </div>
-        </div>
+          <p className='mt-32 font-geist text-base text-primary'>
+            I&apos;m usually available between{' '}
+            <span className='rounded-md bg-secondary-hover p-1 px-2 text-secondary'>
+              {cdtToLocaleTimeString(8, 0)} and {cdtToLocaleTimeString(20, 0)}
+            </span>{' '}
+            (your time).
+          </p>
+        </HeadContainer>
         <div className='relative mb-20 flex w-full flex-col justify-center lg:flex-row'>
           <div className='w-full px-4 pt-8 lg:w-[32.5rem] lg:pl-0 lg:pr-8 xl:w-[35rem]'>
             <Link href='https://discord.com/users/856580960073547787'>
@@ -177,23 +125,23 @@ export default function Home() {
             <div className='flex h-[500px] w-full flex-col overflow-hidden rounded-lg border border-secondary bg-secondary lg:absolute lg:-top-14 lg:ml-4'>
               <div className='flex h-16 w-full shrink-0 items-center justify-between border-b border-b-secondary bg-primary px-4'>
                 <div className='flex items-center justify-center'>
-                  <HiDocumentText className='size-5 mr-1 text-primary' />
+                  <HiDocumentText className='mr-1 size-5 text-primary' />
                   <h4 className='pt-0.5 font-geist font-medium text-primary'> PGP Public Key </h4>
                   <Popover
                     styles={{
                       dropdown: {
                         backgroundColor: 'rgb(var(--background-primary))',
                         borderColor: 'rgb(var(--border-secondary))',
-                        fontFamily: "'Geist', sans-serif",
+                        fontFamily: '\'Geist\', sans-serif',
                       },
                     }}>
                     <Popover.Target>
-                      <div className='size-8 ml-2 hidden items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary-hover sm:flex'>
+                      <div className='ml-2 hidden size-8 items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary-hover sm:flex'>
                         <TbQuestionMark className='size-4 text-primary' />
                       </div>
                     </Popover.Target>
                     <Popover.Dropdown title='What is a PGP key?'>
-                      <p className='font-geist text-xs font-medium text-primary'>
+                      <p className='p-1.5 px-2 font-geist text-xs font-medium text-primary'>
                         PGP keys allow you to verify that a message claimed to have come from me
                         actually did.{' '}
                         <Link
@@ -213,9 +161,9 @@ export default function Home() {
                       // ask for file download permission
                       const element = document.createElement('a');
                       element.setAttribute(
-                        'href',
-                        'data:text/plain;charset=utf-8,' +
-                          encodeURIComponent(HARDCODED_PGP_KUBLIC_KEY_BECAUSE_IM_LAZY)
+                          'href',
+                          'data:text/plain;charset=utf-8,' +
+                          encodeURIComponent(HARDCODED_PGP_KUBLIC_KEY_BECAUSE_IM_LAZY),
                       );
 
                       element.setAttribute('download', 'osmii-public-key.asc');
@@ -223,7 +171,7 @@ export default function Home() {
                       document.body.appendChild(element);
                       element.click();
                     }}>
-                    <HiDownload className='size-4 mr-1 text-primary' />
+                    <HiDownload className='mr-1 size-4 text-primary' />
                     <p className='font-geist text-xs font-medium uppercase text-primary'>
                       Download
                     </p>

@@ -1,11 +1,15 @@
+'use client';
+
 import './globals.css';
+import '@mantine/core/styles.layer.css';
+import {MantineProvider} from '@mantine/core';
 
 /**
  * @description - The root layout of the application
  * @param {React.ReactNode} children - The children
  * @return {JSX.Element} - The root layout
  */
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       {/*
@@ -13,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <MantineProvider>{children}</MantineProvider>
+      </body>
     </html>
   );
 }

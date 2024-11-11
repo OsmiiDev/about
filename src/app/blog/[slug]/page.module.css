@@ -1,0 +1,106 @@
+.markdown {
+  @apply text-primary;
+  @apply font-geist;
+  @apply w-full;
+}
+
+.markdown h1 {
+  @apply text-3xl;
+  @apply font-semibold;
+  @apply mt-4;
+  @apply mb-3;
+}
+
+.markdown h2 {
+  @apply text-2xl;
+  @apply font-semibold;
+  @apply mt-3;
+  @apply mb-2;
+}
+
+.markdown h3 {
+  @apply text-xl;
+  @apply font-semibold;
+  @apply mt-3;
+  @apply mb-2;
+}
+
+.markdown h4 {
+  @apply text-lg;
+  @apply font-semibold;
+  @apply mt-2;
+  @apply mb-1;
+}
+
+.markdown h5 {
+  @apply text-base;
+  @apply font-semibold;
+  @apply text-primary;
+  @apply mt-1;
+  @apply mb-1;
+}
+
+.markdown h6 {
+  @apply text-sm;
+  @apply font-semibold;
+  @apply text-secondary;
+  @apply mt-1;
+  @apply mb-1;
+}
+
+.markdown p {
+  @apply text-sm;
+  @apply font-normal;
+  @apply text-secondary;
+
+  @apply mt-1;
+}
+
+.markdown :global(.katex), .markdown strong {
+  @apply text-primary;
+  @apply font-normal;
+  @apply not-italic;
+}
+
+.markdown code {
+  font-family: 'Geist Mono', monospace;
+}
+
+.markdown a {
+  @apply text-accent-secondary;
+  @apply hover:text-accent-secondary-hover;
+  @apply transition-colors;
+}
+
+.markdown li {
+  font-size: 14px;
+  margin-left: 14px;
+  
+  color: rgb(var(--text-secondary));
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 20%;
+    background-color: rgb(var(--text-tertiary));
+    opacity: 0.5;
+    margin-left: -14px;
+    margin-right: 4px;
+    transform: translateY(-1px);
+  }
+}
+
+
+.linkTo {
+  @apply -ml-10 flex items-center;
+}
+
+.linkTo > div > button {
+  opacity: 0;
+}
+
+.linkTo:hover > div > button {
+  opacity: 1;
+}
