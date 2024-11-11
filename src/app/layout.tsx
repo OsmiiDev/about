@@ -1,9 +1,8 @@
-'use client';
 
 import './globals.css';
 import '@mantine/core/styles.layer.css';
-import {MantineProvider} from '@mantine/core';
 import {Metadata} from 'next';
+import {ProviderWrapper} from '@/components/layout/ProviderWrapper';
 
 
 export const metadata: Metadata = {title: 'Osmii • Fullstack and Machine Learning Developer'};
@@ -23,7 +22,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       */}
       <head />
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <ProviderWrapper>{children}</ProviderWrapper>
       </body>
     </html>
   );
